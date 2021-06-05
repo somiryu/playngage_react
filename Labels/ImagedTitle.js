@@ -1,11 +1,10 @@
 import React from 'react'
-import bg from "../../images/CONTENEDORES/titleBg.png"
 
-function ImagedTitle(props){
-	return( 
+function ImagedTitle({ bg, value }) {
+	return (
 		<div className="ImagedTitle relative">
-			<img className="backgrounds" src={bg} alt="bg"/>
-			<h1 className="absoluteCenteredXY" style={{top:"53%",width:"100%"}}>{props.value}</h1>
+			<img className="backgrounds" src={bg} alt="bg" />
+			<h1 className="absoluteCenteredXY" style={{ top: "53%", width: "100%" }}>value}</h1>
 		</div>
 	)
 }
