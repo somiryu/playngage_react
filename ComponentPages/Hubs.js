@@ -21,7 +21,7 @@ export default (props) => {
 			<DocComponent
 				component={flipable}
 				name="FlipableCard"
-				importPath={"../Hubs/"}
+				ctype="Hubs"
 				properties={[
 					["width", "style", "Defaults to 300px"],
 					["height", "style", "Defaults to 399px"],
