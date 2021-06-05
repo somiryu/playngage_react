@@ -1,4 +1,5 @@
 import React from 'react'
+import ParamsTable from "../ParamsTable"
 
 export default function Index({ back }) {
   return (
@@ -112,13 +113,3 @@ export default function Index({ back }) {
 
 
 
-const ParamsTable = ({ data }) => <table>
-  <thead>
-    <th>Parameter</th>
-    <th>Value</th>
-    <th>Explanaition</th>
-  </thead>
-  <tbody>
-    {data.map(e => <tr key={"param" + e[2]}><td>{e[0]}</td><td>{e[1]}</td><td>{e[2]}</td></tr>)}
-  </tbody>
-</table>
