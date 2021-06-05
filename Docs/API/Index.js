@@ -1,5 +1,4 @@
 import React from 'react'
-import "../docs.css"
 
 export default function Index({ back }) {
   return (
@@ -25,7 +24,7 @@ export default function Index({ back }) {
         <p>To Install the project clone the git project as submodule.</p>
         <p>On your entry file</p>
         <code>import engine, {"{ SubModules }"} from "./playngage_react/Utils/api"</code>
-        <code>import "./playngage_react/Styles/app.css"</code>
+        <code>import "./playngage_react/Styles/app_styles"</code>
       </div>
       <div className="Section" id="ApiToken">
         <h3>Set ApiToken</h3>

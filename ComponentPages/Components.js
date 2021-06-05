@@ -7,7 +7,7 @@ import Buttons from "./Buttons"
 import Labels from "./Labels"
 
 //import "ComponentName" from "./{Capeta/}Component"
-import Loading from "../Modules/Loading";
+import Loading from "../Loaders/Loading";
 
 //test images
 import circ100 from "../ExampleImages/Circ-100.png"
@@ -53,18 +53,23 @@ export default ({ back }) => {
 	return (
 		<div className="Components">
 			<div className="App-link" onClick={back}>Back</div>
+			<div>Import with</div>
+			<code>import Module from "./playngage_react/{compType}/Module"</code>
 			<h1>{compType}</h1>
 			<But text="Textos" listener={setCompType} />
-			<But text="Botones" listener={setCompType} />
+			<But text="Buttons" listener={setCompType} />
 			<But text="Indicators" listener={setCompType} />
 			<But text="Loaders" listener={setCompType} />
 			<But text="Panels" listener={setCompType} />
 			<But text="Hubs" listener={setCompType} />
 			<But text="Labels" listener={setCompType} />
+			<But text="Animations" listener={setCompType} />
+			<But text="Modules" listener={setCompType} />
 
 			<hr />
 			{compType === "Textos" &&
 				<div>
+					<p>Solo referencia de los tamaños establecidos en el css común. No se importan.</p>
 					<h1>Titulo H1</h1>
 					<h2>Titulo H2</h2>
 					<h3>Titulo H3</h3>
@@ -76,7 +81,7 @@ export default ({ back }) => {
 				</div>
 			}
 
-			{compType === "Botones" &&
+			{compType === "Buttons" &&
 				<Buttons images={images} />
 			}
 
@@ -110,7 +115,7 @@ export default ({ back }) => {
 function But(props) {
 	return (
 		<div
-			style={{ margin: 2, backgroundColor: "blue", color: "white", cursor: "pointer", width: 100, padding: 10, textAlign: "center", display: "inline-block" }}
+			style={{ margin: 2, backgroundColor: "blue", color: "white", cursor: "pointer", width: 150, padding: 10, textAlign: "center", display: "inline-block" }}
 			onClick={() => { props.listener(props.text) }}>
 			{props.text === true ? "OFF" : props.text === false ? "ON" : props.text}
 		</div>

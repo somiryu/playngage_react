@@ -1,6 +1,6 @@
 //Add Token with addToken(api, test) function
 
-import Loading from "../Modules/Loading"
+import Loading from "../Loaders/Loading"
 
 export const config = {
 	api_token: "",
