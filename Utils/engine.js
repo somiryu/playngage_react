@@ -17,33 +17,34 @@ export const config = {
 	getCableUrl: function () { this.test ? this.cable_url_test : this.cable_url },
 }
 
-export const getCookie = (cookie) => { var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) { var c = ca[i]; while (c.charAt(0) === ' ') { c = c.substring(1); }; if (c.indexOf(`${cookie}=`) === 0) { return c.split("=")[1]; } }; return false; }
-export const setCookie = (cookie, cvalue) => { let expDays = config.expDays; let d = new Date(); d.setTime(d.getTime() + (expDays * 24 * 60 * 60 * 1000)); const expires = "expires=${d.toUTCString(); document.cookie = cookie}=${cvalue};${expires};path=/"; }
-export const deleteCookie = (cookie) => { document.cookie = `${cookie}=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;` }
+
 
 const engine = {
 	translations: {
 		lang: "es", tr: {},
-		get: function (listener, cat = "translations") { Immutables.all(d => { this.tr = d; listener(d) }, { by_tags: true, filter: { categories: cat } }) },
+		get: function (listener, cat = "translations") { Immutables.all(d => { this.tr = d; listener && listener(d) }, { by_tags: true, filter: { categories: cat } }) },
 		translate: function (tag) { const tr = this.t[tag]; if (!tr) return "Incorrect tag"; return tr[this.lang] },
 	},
-	translate: function (tag) {
+	translate: function (tag, lang) {
 		//console.log(this.translations.lang, this.translations.tr)
 		let tra = this.translations.tr
 		const tr = tra[tag];
-		return (!tr || tr === undefined) ? tag : tr[this.translations.lang] ? tr[this.translations.lang] : (`Empty Trans ${tag}`)
+		return (!tr || tr === undefined) ? tag : tr[lang || this.translations.lang] ? tr[lang || this.translations.lang] : (`Empty Trans ${tag}`)
 	},
-	t: function (tag) { return this.translate(tag) },
+	t: function (tag, lang) { return this.translate(tag, lang) },
 	lang: function () { return this.translations.lang },
 	image: function (path) {
-		if (this.test) {
-			return path.replace("https://engine2.playngage.io", "http://localhost:3001").replace("http://localhost:5001", "http://localhost:3001")
+		if (this.test) { //REVISAR
+			return path.replace("https://engine2.playngage.io", "http://localhost:5000").replace("http://localhost:5000", "http://localhost:3001")
 		} else { return path }
 	},
+	getCookie: (cookie) => { var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) { var c = ca[i]; while (c.charAt(0) === ' ') { c = c.substring(1); }; if (c.indexOf(`${cookie}=`) === 0) { return c.split("=")[1]; } }; return false; },
+	setCookie: (cookie, cvalue) => { let expDays = config.expDays; let d = new Date(); d.setTime(d.getTime() + (expDays * 24 * 60 * 60 * 1000)); document.cookie = `${cookie}=${cvalue};expires=${d.toUTCString()};path=/`; },
+	deleteCookie: (cookie) => { document.cookie = `${cookie}=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;` },
 	log: (a) => { if (config.debug) console.log(a) },
 	setTest: () => config.test = true,
 	setDebug: () => config.debug = true,
-	logIn: (cvalue) => { let d = new Date(); d.setTime(d.getTime() + (config.expDays * 24 * 60 * 60 * 1000)); const expires = `expires=${d.toUTCString()}`; document.cookie = `iia=${cvalue};${expires};path=/`; },
+	logIn: (cvalue) => { let d = new Date(); d.setTime(d.getTime() + (config.expDays * 24 * 60 * 60 * 1000)); document.cookie = `iia=${cvalue};expires=${d.toUTCString()};path=/`; },
 	getUser: () => { var ca = document.cookie.split(';'); for (var i = 0; i < ca.length; i++) { var c = ca[i]; while (c.charAt(0) === ' ') { c = c.substring(1); }; if (c.indexOf("iia=") === 0) { return c.split("=")[1]; } }; return false; },
 	logOut: () => document.cookie = "iia=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;",
 
