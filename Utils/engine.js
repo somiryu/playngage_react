@@ -12,7 +12,7 @@ export const config = {
 	test: false,
 	debug: false,
 	expDays: 3,
-	addToken: function (api, test) { this.api_token = api; this.test_api_token = test ? test : api },
+	setToken: function (api, test) { this.api_token = api; this.test_api_token = test ? test : api },
 	getToken: function () { this.test ? this.test_api_token : this.api_token },
 	getCableUrl: function () { this.test ? this.cable_url_test : this.cable_url },
 }
@@ -104,7 +104,7 @@ const call = function (method, service, data, listener) {
 }
 
 export const Players = {
-	create: (id_in_app, data, listener) => { const data = setDefaults(data, { id_in_app: id_in_app }); call("POST", "players/v2", data, listener) },
+	create: (id_in_app, data = {}, listener) => { setDefaults(data, { id_in_app: id_in_app }); call("POST", "players/v2", data, listener) },
 	get: (id_in_app, listener, data) => {
 		setDefaults(data, { include: "basic,agent,quests" });
 		call("GET", `players/${id_in_app}`, data, listener)
