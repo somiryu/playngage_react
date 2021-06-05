@@ -1,0 +1,31 @@
+.flip-container{perspective: 1000px;}
+.flip-container:hover .flipper, .flip-container.hover .flipper {transform: rotateY(180deg);}
+.flip-container:hover .back {min-height: 325px;}
+.flip-container:hover {min-height: 325px;}
+.flip-container, .front, .back {width: 250px;height: 325px;}
+.flipper {
+    width: 250px;
+    height: 325px;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 30px;
+    -o-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -webkit-box-shadow: -3px 24px 41px -24px rgba(138, 138, 138, 0.95);
+    -moz-box-shadow: -3px 24px 41px -24px rgba(138, 138, 138, 0.95);
+    box-shadow: -3px 24px 41px -24px rgba(138, 138, 138, 0.95);
+}
+
+.FlipableCard{perspective: 1000px; }
+.FlipableCard .flip-card-inner{position: relative;width: 100%;
+    height: 100%;transition: transform 0.8s;transform-style: preserve-3d;}
+.FlipableCard:hover .flip-card-inner {transform: rotateY(180deg);}
+.contSuper{transition: 1s opacity;}
+.FlipableCard:hover .contSuper {opacity:0;}
+.FlipableCard .showBack{transform: rotateY(180deg);}
+.FlipableCard .showBack{transform: rotateY(180deg);}
+.flip-card-front, .flip-card-back {position: absolute;width: 100%;height: 100%;backface-visibility: hidden;}
+.FlipableCard .flip-card-front {color: black;}
+.FlipableCard .flip-card-back {color: white;transform: rotateY(180deg);}

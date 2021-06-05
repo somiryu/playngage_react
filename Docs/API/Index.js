@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Index({ back }) {
   return (
-    <div>
+    <div id="Docs">
       <h3>Welcome to the Playngage React Library API Documentatio</h3>
       <div className="App-link" onClick={back}>Back</div>
       <div className="TableContents">
@@ -10,6 +10,7 @@ export default function Index({ back }) {
           <li><a href="#Installation">Installation</a></li>
           <li><a href="#ApiToken">Set API Token</a></li>
           <li><a href="#Common">Common Parameter</a></li>
+          <li><a href="#language">Module: useLanguage</a></li>
           <li><a href="#engine">Module: engine</a></li>
           <li><a href="#Players">Module: Players</a></li>
           <li><a href="#Agents">Module: Agents</a></li >
@@ -25,6 +26,8 @@ export default function Index({ back }) {
         <p>On your entry file</p>
         <code>import engine, {"{ SubModules }"} from "./playngage_react/Utils/api"</code>
         <code>import "./playngage_react/Styles/app_styles"</code>
+        <p>Common init</p>
+        <code>import engine, {"{config, Immutables, Players}"} from "../playngage_react/Utils/engine"</code>
       </div>
       <div className="Section" id="ApiToken">
         <h3>Set ApiToken</h3>
@@ -63,6 +66,59 @@ export default function Index({ back }) {
         </code>
         <p>Actions can be: "above_poistion", "below_position", "position", "above_percentage" or "below_pergentage"</p>
       </div>
+
+      <div className="Section" id="language">
+        <h3>useLanguage for translations</h3>
+        <p>To use translations with the engine:</p>
+        <ol>
+          <li>Create a category with tag "translations", with fields "es" and "en"</li>
+          <li>Create one immutable for each word, with a tag and translations in the correct fields (en or es).</li>
+        </ol>
+        <p>In react's code:</p>
+        <code>
+          import useLanguage from "../playngage_react/Utils/useLanguage"
+        </code>
+        <code>
+          const [t, language, setLanguage, loading] = useLanguage()
+        </code>
+        <div>
+          <ParamsTable data={[
+            ["t", "func", "t(tag) to get translation"],
+            ["language", "string", "Has the language tag"],
+            ["setLanguage", "func", "Changes Language and stores cookie"],
+            ["loading", "JSX", "Loading component or false"]
+          ]} />
+        </div>
+      </div>
+
+      <div className="Section" id="Immutables">
+        <h3>Immutables</h3>
+        <p>Import Immutables Submodule.</p>
+        <div className="SubSection">
+          <h4>Get All:</h4>
+          <p>Call:</p>
+          <code>Immutables.all(listener, data)</code>
+          <code>data={"{by_categories:true, by_tags:true, page, per_page, filter:{categories: 'a,a'}, exclude:{categories:'a,a'}}"}</code>
+          <h5>Example</h5>
+          <code>useEffect(()={">"}
+              Immutables.all(response ={">"} setData(response), {"{by_tags: true}"} ),[])
+          </code>
+        </div>
+      </div>
     </div>
   )
 }
+
+
+
+
+const ParamsTable = ({ data }) => <table>
+  <thead>
+    <th>Parameter</th>
+    <th>Value</th>
+    <th>Explanaition</th>
+  </thead>
+  <tbody>
+    {data.map(e => <tr key={"param" + e[2]}><td>{e[0]}</td><td>{e[1]}</td><td>{e[2]}</td></tr>)}
+  </tbody>
+</table>
