@@ -1,0 +1,16 @@
+#Accordion .tabsContent .BorderedWidget{margin:0;background-color: white}
+.tabsButtons{display:flex;}
+.tabsButtons .tab{
+	background-color: #F1EDF1;
+	padding: 10px 15px 20px;
+	border-radius: 5px;
+	margin-left: 10px;
+	cursor: pointer; 
+}
+.tabsButtons .selected{
+	border: 1px solid var(--purple);
+	color: var(--purple);
+}
+#Accordion .tabsContent{
+	margin-top:-10px;
+}

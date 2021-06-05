@@ -1,0 +1,29 @@
+.tutorial{
+	border: 1px solid white;
+	margin:30px;
+	background-color: var(--dark);
+	padding: 20px;
+	position:relative;
+	color:white;
+}
+
+.tutorialContent{
+	display:flex;
+}
+
+.tutorial .character{
+}
+.tutorial .character img{
+	width:100px;
+}
+
+.tutorialText{
+	margin-left: 30px;
+	width:100%;
+}
+.tutorial .arrow{
+	position:absolute;
+}
+.tutorial .cta{
+	margin-top: 20px;
+}
