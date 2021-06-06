@@ -22,6 +22,7 @@ small{font-size: 0.7rem}
 .flex.between{justify-content: space-between; align-items: center;}
 .flex.wrap{flex-wrap: wrap;}
 
+.height.h100p{height:100%}
 .height.sm{height: 50px}
 .height.md{height: 100px}
 .height.lg{height: 200px}
@@ -46,10 +47,15 @@ small{font-size: 0.7rem}
 .width.max300{max-width: 300px;}
 .width.max1000{max-width: 1000px;}
 .width.max1200{max-width: 1200px;}
+.width.max50p{max-width: 50%}
+.width.max100p{max-width: 100%}
 .width.sm{width: 50px}
 .width.md{width: 100px}
 .width.lg{width: 200px}
 .width.xl{width: 300px}
+
+.pad.pad-sm{padding: 20px 10px}
+.pad.pad-md{padding: 40px 20px}
 
 .pointer{cursor:pointer}
 
