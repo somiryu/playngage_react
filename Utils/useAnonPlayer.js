@@ -31,8 +31,13 @@ export default function useAnonPlayer() {
     }
     setLoading(load)
     let id_in_app = email.replace("@", "_").split(".").join("-")
-    //Players.update()
-    //engine.logIn(id_in_app)
+    Players.update({ new_id_in_app: id_in_app, email }, (r) => {
+      setLoading(false)
+      if (r.success && r.success === true) {
+        engine.logIn(id_in_app)
+        setPlayer(r.player)
+      }
+    })
   }
 
 
