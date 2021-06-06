@@ -67,8 +67,8 @@ const setParams = function (data, get) {
 	return formData;
 }
 
-const id = (agent) => (id(agent) || agent.id(agent))
-const atype = (agent) => (id(agent) || agent.id(agent))
+const id = (agent) => (agent.agent_id || agent.agent.id)
+const atype = (agent) => (agent.agent_type || agent.agent.agent_type)
 const setDefaults = function (data = {}, defaults = {}) { for (var key in defaults) { data[key] = defaults[key] }; return data }
 
 const call = function (method, service, data, listener) {
