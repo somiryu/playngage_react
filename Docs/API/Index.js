@@ -1,28 +1,9 @@
 import React from 'react'
 import ParamsTable from "../ParamsTable"
 
-const copy = (e) => {
-  e = e.target
-  if (e.innerHTML === "COPIED!") return;
-  console.log(e, e[0])
-  var old = e.innerHTML
-  var sel = window.getSelection();;
-  if (window.getSelection && document.createRange) { //Browser compatibility
-    setTimeout(function () {
-      let range = document.createRange(); //range object
-      range.selectNodeContents(e); //sets Range
-      sel.removeAllRanges(); //remove all ranges from selection
-      sel.addRange(range); //add Range to a Selection.
-      document.execCommand("copy");
-      e.innerHTML = "COPIED!"
-      setTimeout(() => { e.innerHTML = old }, 1000);
-    }, 1);
-  }
-}
+
 
 export default function Index({ back }) {
-
-
   return (
     <div id="Docs">
       <h3>Welcome to the Playngage React Library API Documentatio</h3>
@@ -38,6 +19,7 @@ export default function Index({ back }) {
           <li><a href="#Agents">Module: Agents</a></li >
           <li><a href="#Immutables">Module: Immutables</a></li >
           <li><a href="#Items">Module: Items</a></li >
+          <li><a href="#Decks">Module: Decks</a></li >
           <li><a href="#Rooms">Module: Rooms</a></li >
           <li><a href="#Trivia">Module: Trivia</a></li >
         </ul>
@@ -158,6 +140,28 @@ export default function Index({ back }) {
       </Section>
 
 
+      <Section name="Decks">
+        <SubSection service="Get All" call="Decks.all(agent, listener, params)"
+          params={[
+            ["includes", "Arr", "Can be discarded, in_deck"],
+          ]}
+        />
+        <SubSection service="Get By Tag" call="Decks.get(agent, tag, listener, params)"
+          params={[
+            ["includes", "Arr", "Can be discarded, in_deck"],
+          ]}
+        />
+        <SubSection service="Update" call="Decks.update(tag, action, listener, data = {}, id_in_app*)"
+          params={[
+            ["action", "draw | discard", "To draw or dicards cards"],
+            ["qty", "Int", "Quanity to draw or discard. Defaults to 1"],
+            ["category", "tag", "Draws or discards from this category"],
+            ["includes", "Arr", "Can be discarded, in_deck"],
+          ]}
+        />
+      </Section>
+
+
     </div>
   )
 }
@@ -182,4 +186,26 @@ const SubSection = ({ service, call, params }) =>
   </div>
 
 
-const Code = ({ children }) => <code onClick={copy}>{children}</code>
+const Code = ({ children }) => <code style={{ cursor: "pointer" }} onClick={copy}>{children}</code>
+
+
+
+
+const copy = (e) => {
+  e = e.target
+  if (e.innerHTML === "COPIED!") return;
+  console.log(e, e[0])
+  var old = e.innerHTML
+  var sel = window.getSelection();;
+  if (window.getSelection && document.createRange) { //Browser compatibility
+    setTimeout(function () {
+      let range = document.createRange(); //range object
+      range.selectNodeContents(e); //sets Range
+      sel.removeAllRanges(); //remove all ranges from selection
+      sel.addRange(range); //add Range to a Selection.
+      document.execCommand("copy");
+      e.innerHTML = "COPIED!"
+      setTimeout(() => { e.innerHTML = old }, 1000);
+    }, 1);
+  }
+}

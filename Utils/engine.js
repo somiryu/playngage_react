@@ -186,7 +186,9 @@ export const Agents = {
 	getCooldownMissions: (agent, quest) => agent.quests.available[quest].missions.locked,
 }
 
-export const Deck = {
+export const Decks = {
+	get: (agent, data, listener) => call("GET", `agents/decks`, setDefaults(data, { agent_id: id(agent), agent_type: atype(agent) }), listener),
+	get: (agent, tag, data, listener) => call("GET", `agents/decks/${tag}`, setDefaults(data, { agent_id: id(agent), agent_type: atype(agent) }), listener),
 	update: (tag, action, listener, data = {}, id_in_app) => call("PUT", `agents/decks/${tag}`, setDefaults(data, { id_in_app: id_in_app || engine.getUser(), do: action }), listener),
 }
 
