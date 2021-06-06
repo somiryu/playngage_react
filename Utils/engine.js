@@ -114,7 +114,8 @@ export const Players = {
 		this.get(id_in_app, (d) => {
 			if (d.status && d.status === "Invalid player: check id_in_app") { this.create(id_in_app, data, (cd) => { if (cd.player) this.get(id_in_app, (r) => listener(r)) }) } else { listener(d) }
 		}, data)
-	}
+	},
+	update: (data = {}, listener) => call("PUT", `players/${engine.getUser()}`, data, listener),
 }
 
 

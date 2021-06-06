@@ -135,6 +135,13 @@ export default function Index({ back }) {
         <SubSection service="Get or Create" call="Players.get_or_create(id_in_app, listener, data={})"
           params={[["See above", "", "Same as get and create"]]}
         />
+        <SubSection service="Update Player" call="Players.update(listener, data)"
+          params={[
+            ["id_in_app?", "N/A", "Gets logged player by cookie"],
+            ["field", "value", "A player field with a new value"],
+            ["new_id_in_app", "String", "Changes id_in_app"]
+          ]}
+        />
       </Section>
 
       <Section name="Immutables">
