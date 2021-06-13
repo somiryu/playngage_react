@@ -1,4 +1,5 @@
 require("./app.css")
 require("./Modal.css")
+require("./Slides.css")
 require("./docs.css")
 require("./Flippable.css")

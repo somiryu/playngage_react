@@ -104,7 +104,12 @@ const call = function (method, service, data, listener) {
 		.catch(err => console.log("Api error:", err))
 }
 
+// export const hookApi = {
+// 	rewardAssociations: ({ id, listener }) => call("GET", `/rewards/${id}/associations`, {}, listener),
+// }
+
 export const Players = {
+	getHook: ({ id_in_app, listener, data = {} }) => call("GET", `players/${id_in_app}`, setDefault(data, { include: "basic,agent,quests" }), listener),
 	create: (id_in_app, data = {}, listener) => { setDefaults(data, { id_in_app: id_in_app }); call("POST", "players/v2", data, listener) },
 	get: (id_in_app, listener, data) => {
 		setDefaults(data, { include: "basic,agent,quests" });
@@ -121,6 +126,7 @@ export const Players = {
 
 
 export const Items = {
+	allHook: ({ data = {}, listener }) => call("GET", "items", data, listener),
 	getAgentItems: (listener, data = {}) => call("GET", "agent_items", data, listener),
 	getOwnedAgentItems: (agent, listener, data = {}) => call("GET", "agent_items", setDefaults(data, { agent: id(agent), agent_type: atype(agent) }), listener),
 	get: (tag, listener) => call("GET", `items/${tag}`, {}, listener),
@@ -186,9 +192,13 @@ export const Agents = {
 	getCooldownMissions: (agent, quest) => agent.quests.available[quest].missions.locked,
 }
 
+const addAgent = (agent) => { return { agent_id: id(agent), agent_type: atype(agent) } }
+
 export const Decks = {
 	all: (agent, data, listener) => call("GET", `agents/decks`, setDefaults(data, { agent_id: id(agent), agent_type: atype(agent) }), listener),
-	get: (agent, tag, data, listener) => call("GET", `agents/decks/${tag}`, setDefaults(data, { agent_id: id(agent), agent_type: atype(agent) }), listener),
+	getHook: ({ data = {}, listener }) => call("GET", `agents/decks/${data.tag}`, setDefaults(data, addAgent(data.ag)), listener),
+	get: (agent, tag, listener, data) => call("GET", `agents/decks/${tag}`, setDefaults(data, { agent_id: id(agent), agent_type: atype(agent) }), listener),
+	updateHook: ({ data = {}, listener }) => call("PUT", `agents/decks/${data.tag}`, setDefaults(data, { id_in_app: data.id_in_app || engine.getUser() }), listener),
 	update: (tag, action, listener, data = {}, id_in_app) => call("PUT", `agents/decks/${tag}`, setDefaults(data, { id_in_app: id_in_app || engine.getUser(), do: action }), listener),
 }
 
@@ -226,6 +236,7 @@ export const Trivia = {
 //params:
 //all: by_categories:true, by_tags:true, page, per_page, filter:{categories: "a,a"}, exclude:{categories:"a,a"}
 export const Immutables = {
+	allHook: ({ data, listener }) => call("GET", "immutable_objects", data, listener),
 	all: (listener, data) => call("GET", "immutable_objects", data, listener),
 }
 

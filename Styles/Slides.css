@@ -1,0 +1,4 @@
+.Slides{display: flex; justify-content:space-between;align-items: center; width: 100%}
+.Slides .slides-content{flex:1}
+.Slides .arrow{cursor: pointer; transition: 0.5s transform}
+.Slides .arrow:hover{transform: scale(1.1)}

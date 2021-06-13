@@ -6,7 +6,7 @@ h4{font-size: 1.3rem}
 p{font-size: 1rem}
 small{font-size: 0.7rem}
 
-.pos.absolute{position: absolute}
+
 
 .block{display: block}
 .block.center{margin:auto}
@@ -22,11 +22,21 @@ small{font-size: 0.7rem}
 .flex.between{justify-content: space-between; align-items: center;}
 .flex.wrap{flex-wrap: wrap;}
 
+.grid{display: grid}
+.grid-col-3{grid-template-columns: 1fr 1fr 1fr;}
+.grid-item-span-all{grid-column-start: 1; grid-column-end: -1}
+.grid-row-200{grid-auto-rows: 200px;}
+.grid-row-300{grid-auto-rows: 300px;}
+.grid-row-350{grid-auto-rows: 350px;}
+.grid-row-400{grid-auto-rows: 400px;}
+.grid-gap-10{gap: 10px 20px;}
+
 .height.h100p{height:100%}
 .height.sm{height: 50px}
 .height.md{height: 100px}
 .height.lg{height: 200px}
 .height.xl{height: 300px}
+.height.maxh100p{max-height:100px}
 
 .margin.a10{margin: 10px}
 .margin.a30{margin: 30px}
@@ -48,11 +58,13 @@ small{font-size: 0.7rem}
 .width.max1000{max-width: 1000px;}
 .width.max1200{max-width: 1200px;}
 .width.max50p{max-width: 50%}
+.width.max70p{max-width: 70%}
 .width.max100p{max-width: 100%}
 .width.sm{width: 50px}
 .width.md{width: 100px}
 .width.lg{width: 200px}
 .width.xl{width: 300px}
+.width.w100p{width: 100%}
 
 .pad.pad-sm{padding: 20px 10px}
 .pad.pad-md{padding: 40px 20px}
