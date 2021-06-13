@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Slides({ objs, arrowBack, arrowNext, loop = false }) {
+export default function Slides({ objs, arrowBack, arrowNext, loop = false, }) {
   const [slide, setSlide] = useState(0)
   const change = (x) => {
     setSlide(prev => objs[prev + x] ? prev + x :
