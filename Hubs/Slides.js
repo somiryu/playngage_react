@@ -10,12 +10,18 @@ export default function Slides({ objs, arrowBack, arrowNext, loop = false, }) {
 
   return (
     <div className="Slides">
-      {(loop || objs[slide - 1]) && <div className="arrow arrow-back" onClick={() => change(-1)}>{arrowBack || "<"}</div>}
+      {(loop || objs[slide - 1]) ?
+        <div className="arrow arrow-back" onClick={() => change(-1)}>{arrowBack || "<"}</div>
+        : <div className="arrow no-arrow" />
+      }
       <div className="slides-content">
         {objs[slide]}
       </div>
 
-      {(loop || objs[slide + 1]) && <div className="arrow arrow-next" onClick={() => change(1)}>{arrowNext || ">"}</div>}
+      {(loop || objs[slide + 1]) ?
+        <div className="arrow arrow-next" onClick={() => change(1)}>{arrowNext || ">"}</div>
+        : <div className="arrow no-arrow" />
+      }
     </div>
   )
 }
