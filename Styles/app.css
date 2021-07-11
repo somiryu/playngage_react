@@ -67,7 +67,9 @@ small{font-size: 0.7rem}
 .width.w100p{width: 100%}
 
 .pad.pad-sm{padding: 20px 10px}
+.pad.pad-sm-sq{padding: 20px 20px}
 .pad.pad-md{padding: 40px 20px}
+
 
 .pointer{cursor:pointer}
 
