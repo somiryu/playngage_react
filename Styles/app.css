@@ -32,43 +32,45 @@ small{font-size: 0.7rem}
 .grid-gap-10{gap: 10px 20px;}
 
 .height.h100p{height:100%}
-.height.sm{height: 50px}
-.height.md{height: 100px}
-.height.lg{height: 200px}
-.height.xl{height: 300px}
-.height.maxh100p{max-height:100px}
+.height.sm{height: 5rem}
+.height.md{height: 10rem}
+.height.lg{height: 20rem}
+.height.xl{height: 30rem}
+.height.maxh100p{max-height:10rem}
 
-.margin.a10{margin: 10px}
-.margin.a30{margin: 30px}
-.margin.a60{margin: 60px}
-.margin.b10{margin-bottom: 10px}
-.margin.b30{margin-bottom: 30px}
-.margin.b60{margin-bottom: 60px}
-.margin.l10{margin-left: 10px}
-.margin.l30{margin-left: 30px}
-.margin.l60{margin-left: 60px}
-.margin.r10{margin-right: 10px}
-.margin.r30{margin-right: 30px}
-.margin.r60{margin-right: 60px}
-.margin.t10{margin-top: 10px}
-.margin.t30{margin-top: 30px}
-.margin.t60{margin-top: 60px}
+.margin.a10{margin: 1rem}
+.margin.a30{margin: 3rem}
+.margin.a60{margin: 6rem}
+.margin.b10{margin-bottom: 1rem}
+.margin.b30{margin-bottom: 3rem}
+.margin.b60{margin-bottom: 6rem}
+.margin.l10{margin-left: 1rem}
+.margin.l30{margin-left: 3rem}
+.margin.l60{margin-left: 6rem}
+.margin.r10{margin-right: 1rem}
+.margin.r30{margin-right: 3rem}
+.margin.r60{margin-right: 6rem}
+.margin.t10{margin-top: 1rem}
+.margin.t30{margin-top: 3rem}
+.margin.t60{margin-top: 6rem}
 
-.width.max300{max-width: 300px;}
-.width.max1000{max-width: 1000px;}
-.width.max1200{max-width: 1200px;}
+.width.max300{max-width: 30rem;}
+.width.max1000{max-width: 100rem;}
+.width.max1200{max-width: 120rem;}
 .width.max50p{max-width: 50%}
 .width.max70p{max-width: 70%}
 .width.max100p{max-width: 100%}
-.width.sm{width: 50px}
-.width.md{width: 100px}
-.width.lg{width: 200px}
-.width.xl{width: 300px}
+.width.sm{width: 5rem}
+.width.md{width: 10rem}
+.width.lg{width: 20rem}
+.width.xl{width: 30rem}
 .width.w100p{width: 100%}
 
-.pad.pad-sm{padding: 20px 10px}
-.pad.pad-sm-sq{padding: 20px 20px}
-.pad.pad-md{padding: 40px 20px}
+.pad.pad-sm{padding: 2rem 1rem}
+.pad.pad-sm-sq{padding: 2rem 2rem}
+.pad.pad-md{padding: 4rem 2rem}
+
+.pad.pt-5{padding-top:5rem}
 
 
 .pointer{cursor:pointer}
